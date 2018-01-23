@@ -2,6 +2,19 @@ package utils
 
 import "fmt"
 
+// Note the use of << to create an untyped constant.
+const bitsPerWord = 32 << uint(^uint(0)>>63)
+
+//BitsPerWord is an implementation-specific size of int and uint in bits.
+const BitsPerWord = bitsPerWord // either 32 or 64
+
+// Implementation-specific integer limit values.
+const (
+	MaxInt  = 1<<(BitsPerWord-1) - 1 // either 1<<31 - 1 or 1<<63 - 1
+	MinInt  = -MaxInt - 1            // either -1 << 31 or -1 << 63
+	MaxUint = 1<<BitsPerWord - 1     // either 1<<32 - 1 or 1<<64 - 1
+)
+
 // CreateSliceOfSize returns a slice of ints which elements are taken in input from Stdin
 func CreateSliceOfSize(n int) []int {
 	a := make([]int, n)
