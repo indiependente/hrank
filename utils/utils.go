@@ -51,6 +51,19 @@ func SumInt64(arr []int64) int64 {
 	return sum
 }
 
+// SelectionSort in-place selection sort for int64 elements
+func SelectionSort(array []int) []int {
+	n := len(array)
+	for i := 0; i < n; i++ {
+		for j := i; j < n; j++ {
+			if array[i] > array[j] {
+				array[i], array[j] = array[j], array[i]
+			}
+		}
+	}
+	return array
+}
+
 // SelectionSortInt64 in-place selection sort for int64 elements
 func SelectionSortInt64(array []int64) []int64 {
 	n := len(array)
@@ -62,4 +75,45 @@ func SelectionSortInt64(array []int64) []int64 {
 		}
 	}
 	return array
+}
+
+// Min returns the min element of the input slice and the position where it has been found
+func Min(a []int) (int, int) {
+	min := MaxInt
+	pos := -1
+	for i, e := range a {
+		if e < min {
+			min = e
+			pos = i
+		}
+	}
+	return min, pos
+}
+
+// Max returns the max element of the input slice and the position where it has been found
+func Max(a []int) (int, int) {
+	max := MinInt
+	pos := -1
+	for i, e := range a {
+		if e > max {
+			max = e
+			pos = i
+		}
+	}
+	return max, pos
+}
+
+// MinMax returns the minimum and the maximum value of the array in input
+func MinMax(a []int) (int, int) {
+	max := MinInt
+	min := MaxInt
+	for _, e := range a {
+		if e > max {
+			max = e
+		}
+		if e < min {
+			min = e
+		}
+	}
+	return min, max
 }
