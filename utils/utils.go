@@ -28,3 +28,25 @@ func Sum(arr []int) int {
 	}
 	return sum
 }
+
+// SumInt64 returns the sum of the int64 elements in the input array
+func SumInt64(arr []int64) int64 {
+	var sum int64
+	for i := 0; i < len(arr); i++ {
+		sum += arr[i]
+	}
+	return sum
+}
+
+// SelectionSortInt64 in-place selection sort for int64 elements
+func SelectionSortInt64(array []int64) []int64 {
+	n := len(array)
+	for i := 0; i < n; i++ {
+		for j := i; j < n; j++ {
+			if array[i] > array[j] {
+				array[i], array[j] = array[j], array[i]
+			}
+		}
+	}
+	return array
+}
