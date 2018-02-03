@@ -103,6 +103,20 @@ func Max(a []int) (int, int) {
 	return max, pos
 }
 
+// MaxInt64 returns the max element of the input slice and the position where it has been found
+func MaxInt64(a []int64) (int64, int64) {
+	var max, pos int64
+	max = MinInt
+	pos = -1
+	for i, e := range a {
+		if e > max {
+			max = e
+			pos = int64(i)
+		}
+	}
+	return max, pos
+}
+
 // MinMax returns the minimum and the maximum value of the array in input
 func MinMax(a []int) (int, int) {
 	max := MinInt
