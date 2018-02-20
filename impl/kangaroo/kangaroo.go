@@ -12,8 +12,6 @@ import "fmt"
 func main() {
 	var x1, v1, x2, v2 int
 	fmt.Scanf("%d %d %d %d", &x1, &v1, &x2, &v2)
-	i := (x1 - x2) / (v2 - v1)
-	fmt.Println(x1 + i*v1)
 	if (v2 != v1) && ((x1-x2)/(v2-v1)) > 0 {
 		fmt.Print("YES")
 	} else if (v2 == v1) && (x1-x2) > 0 {
